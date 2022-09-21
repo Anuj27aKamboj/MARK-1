@@ -6,37 +6,62 @@ function welcome() {
   var userName = readlineSync.question("Please enter your name - ");
 
   console.log("Welcome " + userName);
-  console.log("Let's Play this fun quiz ~~~ How Much You Know Anuj");
+  console.log("Let's Play this fun quiz ~~~ Do you know me ?? ");
+  console.log();
+  console.log("**You can either enter the option or type complete answer**");
   console.log();
 }
 
 var questions = [
   {
     question: "What is my full name ? ",
-    answer: "Anuj Kamboj"
+    answerA: "Anuj Kamboj",
+    answerB: "Kamboj Anuj"
   },
   {
     question: "Where do I study ? ",
-    answer: "Lovely Professional University"
+    answerA: "Lovely Professional University",
+    answerB: "Chandigarh University"
   },
   {
     question: "What is my home town ? ",
-    answer: "Yamuna Nagar"
+    answerA: "Yamuna Nagar",
+    answerB: "Jalandhar"
   },
   {
     question: "what is my Date of Birth ? ",
-    answer: "27/06/2000"
+    answerA: "27/06/2000",
+    answerB: "28/06/2000"
   },
   {
     question: "What is my Dog's name ? ",
-    answer: "PLUTO"
+    answerA: "Pluto",
+    answerB: "Jupiter"
+  },
+  {
+    question: "What is my Course Major? ",
+    answerA: "Full-Stack Web Developer",
+    answerB: "Data Analyst"
+  },
+  {
+    question: "What is my hobby ? ",
+    answerA: "Cooking",
+    answerB: "Singing"
+
+  },
+  {
+    question: "What is my stress-buster ? ",
+    answerA: "Workout",
+    answerB: "Dance"
   }
 ]
 
-function play(quest, ans) {
-  var userAnswer = readlineSync.question(quest);
+function play(quest, ansA, ansB) {
+  console.log(quest);
+  console.log("A:" + ansA + "\t" + "B:" + ansB);
+  var userAnswer = readlineSync.question("Enter your answer: ");
 
-  if (userAnswer.toUpperCase() === ans.toUpperCase()) {
+  if ((userAnswer.toUpperCase() === ansA.toUpperCase()) || (userAnswer.toUpperCase() === "A")) {
     console.log("Yay!! Right answer ");
     console.log("/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/");
     score++;
@@ -49,7 +74,7 @@ function play(quest, ans) {
 
 function game() {
   for (var i = 0; i < questions.length; i++) {
-    play(questions[i].question, questions[i].answer)
+    play(questions[i].question, questions[i].answerA, questions[i].answerB)
   }
 }
 
